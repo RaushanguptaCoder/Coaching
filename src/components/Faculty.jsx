@@ -47,7 +47,7 @@ const Faculty = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-brand-slate-50 relative overflow-hidden">
+    <section id="faculty" className="py-24 bg-white relative overflow-hidden">
       {/* Decorative gradient overlay */}
       <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-brand-blue-500/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brand-green-500/5 blur-3xl pointer-events-none" />
@@ -82,7 +82,7 @@ const Faculty = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl border border-brand-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group"
+              className="bg-brand-slate-50/40 hover:bg-white rounded-2xl border border-brand-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group"
             >
               {/* Photo Area */}
               <div className="relative aspect-[4/5] bg-brand-slate-100 overflow-hidden">

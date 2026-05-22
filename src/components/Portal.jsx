@@ -119,7 +119,7 @@ const Portal = ({ isOpen, onClose }) => {
                   <div className="h-12 w-12 rounded-2xl bg-brand-blue-600/20 text-brand-green-400 flex items-center justify-center mx-auto mb-4 border border-brand-blue-800">
                     <LogIn className="h-6 w-6" />
                   </div>
-                  <h3 className="font-display font-extrabold text-2xl">Apex Portal Login</h3>
+                  <h3 className="font-display font-extrabold text-2xl">Manoj Private Tuitions Portal Login</h3>
                   <p className="text-brand-slate-450 text-xs mt-1.5 font-sans">
                     Access schedules, performance graphs, and attendance records.
                   </p>

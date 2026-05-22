@@ -94,7 +94,7 @@ const HallOfFame = () => {
   const currentStudents = activeTab === 'board' ? boardToppers : competitiveQualifiers;
 
   return (
-    <section id="results" className="py-24 bg-white relative overflow-hidden border-t border-b border-brand-slate-100">
+    <section id="results" className="py-24 bg-brand-slate-50 relative overflow-hidden border-t border-b border-brand-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
@@ -106,7 +106,7 @@ const HallOfFame = () => {
             Hall of Fame
           </h2>
           <p className="text-brand-slate-600 text-sm sm:text-base font-sans">
-            Our results speak louder than words. Year after year, Apex Academy students secure top ranks in state boards and national competitive entrance examinations.
+            Our results speak louder than words. Year after year, Manoj Private Tuitions students secure top ranks in state boards and national competitive entrance examinations.
           </p>
         </div>
 

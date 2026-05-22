@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ChooseGoal from './components/ChooseGoal';
+import Founder from './components/Founder';
 import Faculty from './components/Faculty';
 import HallOfFame from './components/HallOfFame';
 import LeadForm from './components/LeadForm';
@@ -31,7 +32,7 @@ function App() {
     console.log("Triggered Prospectus Download");
     const docText = `
 =========================================
-      APEX ACADEMY PROSPECTUS (2026-27)
+      MANOJ PRIVATE TUITIONS PROSPECTUS (2026-27)
 =========================================
 Target Wings:
 1. Junior Wing (Classes 7th - 10th)
@@ -50,14 +51,14 @@ Elite Faculty:
 
 Connect with us: Dwarka, New Delhi.
 Contact: +91 98765 43210
-Email: info@apexacademy.edu
+Email: info@manojprivatetutions.edu
 =========================================
 `;
     const blob = new Blob([docText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'Apex_Academy_Prospectus.txt';
+    link.download = 'Manoj_Private_Tuitions_Prospectus.txt';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -82,6 +83,8 @@ Email: info@apexacademy.edu
         <ChooseGoal 
           onSelectGoal={handleSelectGoal}
         />
+
+        <Founder />
 
         <Faculty />
 
