@@ -71,16 +71,16 @@ const Navbar = ({ activePage, setActivePage, onOpenPortal, onOpenDemoModal }) =>
     { name: "About Us", href: "#about", icon: GraduationCap },
     { name: "Classrooms", href: "#classrooms", icon: School },
     { name: "Results", href: "#results", icon: Award },
-    { name: "Resources", href: "#resources", icon: FileText, subItems: ["Free Study Material", "Test Series", "Syllabus"] }
+    { name: "Resources", href: "#resources", icon: FileText }
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-brand-slate-900/90 backdrop-blur-md border-b border-brand-slate-800 shadow-lg text-white' : 'bg-transparent text-white'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-brand-slate-900/90 backdrop-blur-md border-b border-brand-slate-800 shadow-lg text-white' : 'bg-black text-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div 
-            className="flex-shrink-0 flex items-center gap-2 cursor-pointer" 
+          <div
+            className="flex-shrink-0 flex items-center gap-2 cursor-pointer"
             onClick={() => {
               setActivePage('home');
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -156,7 +156,7 @@ const Navbar = ({ activePage, setActivePage, onOpenPortal, onOpenDemoModal }) =>
                 onMouseEnter={() => link.subItems ? setActiveDropdown(link.name) : null}
                 onMouseLeave={() => link.subItems ? setActiveDropdown(null) : null}
               >
-                <a 
+                <a
                   href={link.href}
                   onClick={(e) => !link.subItems && handleLinkClick(e, link.href)}
                   className={`font-medium hover:text-brand-green-400 transition-colors text-sm flex items-center gap-1 ${activePage === 'classrooms' && link.name === 'Classrooms' ? 'text-brand-green-400' : ''}`}
