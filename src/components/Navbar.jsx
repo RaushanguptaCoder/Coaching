@@ -63,10 +63,10 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
             </div>
             <div>
               <span className="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white via-brand-slate-100 to-brand-green-400 bg-clip-text text-transparent">
-                APEX
+                Manoj
               </span>
               <span className="font-display font-medium text-xs block text-brand-slate-400 uppercase tracking-widest -mt-1">
-                Academy
+                Private Tutions
               </span>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {/* Programs Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setActiveDropdown('programs')}
               onMouseLeave={() => setActiveDropdown(null)}
@@ -84,7 +84,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
               </button>
               <AnimatePresence>
                 {activeDropdown === 'programs' && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
@@ -95,8 +95,8 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                     <h4 className="text-xs font-semibold text-brand-slate-500 uppercase tracking-wider mb-2">Our Academic Wings</h4>
                     <div className="space-y-1">
                       {programs.wings.map((wing, i) => (
-                        <a 
-                          key={i} 
+                        <a
+                          key={i}
                           href={wing.href}
                           onClick={() => setActiveDropdown(null)}
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-brand-slate-800/60 transition-colors group"
@@ -119,7 +119,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
 
             {/* Nav Links */}
             {navLinks.map((link, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="relative"
                 onMouseEnter={() => link.subItems ? setActiveDropdown(link.name) : null}
@@ -130,7 +130,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                 </a>
 
                 {link.subItems && activeDropdown === link.name && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
@@ -138,7 +138,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                     className="absolute left-0 mt-2 w-52 rounded-xl bg-brand-slate-900 border border-brand-slate-800 shadow-xl p-2"
                   >
                     {link.subItems.map((item, itemIdx) => (
-                      <a 
+                      <a
                         key={itemIdx}
                         href="#resources"
                         onClick={() => setActiveDropdown(null)}
@@ -156,7 +156,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
           {/* CTAs */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Student/Parent Portal Button */}
-            <button 
+            <button
               id="nav-portal-btn"
               onClick={onOpenPortal}
               className="flex items-center gap-2 px-4 py-2 rounded-xl border border-brand-slate-700 hover:border-brand-green-500 hover:bg-brand-slate-800/40 text-brand-slate-300 hover:text-white transition-all text-sm font-medium"
@@ -166,7 +166,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
             </button>
 
             {/* Book Demo Button */}
-            <button 
+            <button
               id="nav-demo-btn"
               onClick={onOpenDemoModal}
               className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue-600 to-brand-green-500 hover:from-brand-blue-700 hover:to-brand-green-600 text-white font-semibold text-sm shadow-lg hover:shadow-brand-green-500/10 hover:scale-[1.02] transition-all"
@@ -177,14 +177,14 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
 
           {/* Mobile hamburger menu */}
           <div className="lg:hidden flex items-center gap-3">
-            <button 
+            <button
               onClick={onOpenPortal}
               className="p-2 rounded-lg bg-brand-slate-800 text-brand-green-400 hover:text-white"
               title="Portal Login"
             >
               <User className="h-5 w-5" />
             </button>
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-brand-slate-800 text-brand-slate-300 hover:text-white hover:bg-brand-slate-700 transition-colors focus:outline-none"
             >
@@ -197,7 +197,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
       {/* Mobile Drawer menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -208,8 +208,8 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                 <span className="text-xs font-semibold text-brand-slate-500 uppercase tracking-wider block px-3 mb-2">Programs</span>
                 <div className="space-y-1 pl-2">
                   {programs.wings.map((wing, i) => (
-                    <a 
-                      key={i} 
+                    <a
+                      key={i}
                       href={wing.href}
                       onClick={() => setIsOpen(false)}
                       className="block px-3 py-2 rounded-lg text-brand-slate-300 hover:bg-brand-slate-800 hover:text-white transition-colors"
@@ -225,7 +225,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                 <span className="text-xs font-semibold text-brand-slate-500 uppercase tracking-wider block px-3 mb-2">Links</span>
                 <div className="space-y-1 pl-2">
                   {navLinks.map((link, idx) => (
-                    <a 
+                    <a
                       key={idx}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
@@ -238,14 +238,14 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
               </div>
 
               <div className="pt-4 border-t border-brand-slate-800 px-3 flex flex-col gap-3">
-                <button 
+                <button
                   onClick={() => { setIsOpen(false); onOpenPortal(); }}
                   className="w-full py-2.5 rounded-lg border border-brand-slate-700 hover:bg-brand-slate-800 flex items-center justify-center gap-2 text-sm text-brand-slate-300"
                 >
                   <User className="h-4 w-4 text-brand-green-400" />
                   <span>Portal Login</span>
                 </button>
-                <button 
+                <button
                   onClick={() => { setIsOpen(false); onOpenDemoModal(); }}
                   className="w-full py-2.5 rounded-lg bg-gradient-to-r from-brand-blue-600 to-brand-green-500 text-white font-semibold text-sm shadow-md text-center"
                 >

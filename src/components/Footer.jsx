@@ -10,7 +10,7 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-brand-slate-800">
-          
+
           {/* Logo and Pitch */}
           <div className="lg:col-span-4 text-left">
             <div className="flex items-center gap-2 cursor-pointer mb-5" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -19,10 +19,10 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
               </div>
               <div>
                 <span className="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white to-brand-green-400 bg-clip-text text-transparent">
-                  APEX
+                  Manoj
                 </span>
                 <span className="font-display font-medium text-xs block text-brand-slate-400 uppercase tracking-widest -mt-1">
-                  Academy
+                  Private Tutions
                 </span>
               </div>
             </div>
@@ -31,7 +31,7 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
             </p>
             <div className="flex items-center gap-4">
               {/* Portal link */}
-              <button 
+              <button
                 onClick={onOpenPortal}
                 className="text-xs font-semibold text-brand-green-400 hover:text-white transition-colors flex items-center gap-1 bg-brand-slate-800/80 px-3 py-1.5 rounded-lg border border-brand-slate-750"
               >
@@ -102,7 +102,7 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-brand-green-400 shrink-0 mt-0.5" />
                 <span>
-                  Plot 45, Sector 11, Metro Plaza Road, Dwarka, New Delhi - 110075
+                  TITWALA, SHOP NO.1TO3, RAVINDRA GALAXY, NEAR RAVINDRA VIDYALAYA, Manda, Kalyan, Maharashtra 421605
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -111,7 +111,7 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-brand-blue-400 shrink-0" />
-                <a href="mailto:info@apexacademy.edu" className="hover:text-white transition-colors">info@apexacademy.edu</a>
+                <a href="mailto:info@manojprivatetutions.edu" className="hover:text-white transition-colors">info@manojprivatetutions.edu </a>
               </li>
             </ul>
           </div>
@@ -120,7 +120,7 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
 
         {/* Footer bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 text-xs text-brand-slate-500 font-sans">
-          <p>© {new Date().getFullYear()} Apex Academy. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Manoj Private Tutions. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-brand-green-400 transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-brand-green-400 transition-colors">Privacy Policy</a>
