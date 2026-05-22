@@ -1,7 +1,25 @@
 import React from 'react';
 import { GraduationCap, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 
-const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
+const Footer = ({ setActivePage, onOpenPortal, onOpenDemoModal }) => {
+  const handleLinkClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      if (targetId === 'classrooms') {
+        setActivePage('classrooms');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setActivePage('home');
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    }
+  };
   return (
     <footer className="bg-brand-slate-900 border-t border-brand-slate-800 text-white font-sans pt-16 pb-8 relative overflow-hidden">
       {/* Subtle styling ambient gradients */}
@@ -13,7 +31,13 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
 
           {/* Logo and Pitch */}
           <div className="lg:col-span-4 text-left">
-            <div className="flex items-center gap-2 cursor-pointer mb-5" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div 
+              className="flex items-center gap-2 cursor-pointer mb-5" 
+              onClick={() => {
+                setActivePage('home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
               <div className="p-2 rounded-xl bg-gradient-to-tr from-brand-blue-600 to-brand-green-500 text-white shadow-md">
                 <GraduationCap className="h-6 w-6" />
               </div>
@@ -46,22 +70,22 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-brand-slate-300 mb-5">Programs</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#choose-goal" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#choose-goal" onClick={(e) => handleLinkClick(e, '#choose-goal')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   Junior Wing (7th-10th)
                 </a>
               </li>
               <li>
-                <a href="#choose-goal" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#choose-goal" onClick={(e) => handleLinkClick(e, '#choose-goal')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   Senior Wing (11th-12th)
                 </a>
               </li>
               <li>
-                <a href="#choose-goal" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#choose-goal" onClick={(e) => handleLinkClick(e, '#choose-goal')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   IIT-JEE Integrated
                 </a>
               </li>
               <li>
-                <a href="#choose-goal" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#choose-goal" onClick={(e) => handleLinkClick(e, '#choose-goal')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   NEET-UG Dropper Batch
                 </a>
               </li>
@@ -73,22 +97,27 @@ const Footer = ({ onOpenPortal, onOpenDemoModal }) => {
             <h4 className="text-xs font-bold uppercase tracking-wider text-brand-slate-300 mb-5">Resources</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#resources" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#classrooms" onClick={(e) => handleLinkClick(e, '#classrooms')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors font-semibold">
+                  Classroom Facilities
+                </a>
+              </li>
+              <li>
+                <a href="#resources" onClick={(e) => handleLinkClick(e, '#resources')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   Free Study Material
                 </a>
               </li>
               <li>
-                <a href="#resources" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#resources" onClick={(e) => handleLinkClick(e, '#resources')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   Mock Test Series
                 </a>
               </li>
               <li>
-                <a href="#resources" className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
+                <a href="#resources" onClick={(e) => handleLinkClick(e, '#resources')} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors">
                   Syllabus Breakdown
                 </a>
               </li>
               <li>
-                <button onClick={onOpenDemoModal} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors text-left focus:outline-none">
+                <button onClick={onOpenDemoModal} className="text-brand-slate-400 hover:text-brand-green-400 transition-colors text-left focus:outline-none cursor-pointer">
                   Book Counseling Session
                 </button>
               </li>

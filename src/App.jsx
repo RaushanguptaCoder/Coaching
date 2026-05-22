@@ -8,12 +8,14 @@ import HallOfFame from './components/HallOfFame';
 import LeadForm from './components/LeadForm';
 import Portal from './components/Portal';
 import Footer from './components/Footer';
+import Classrooms from './components/Classrooms';
 
 function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isPortalOpen, setIsPortalOpen] = useState(false);
   const [prefilledClass, setPrefilledClass] = useState('');
   const [prefilledGoal, setPrefilledGoal] = useState('');
+  const [activePage, setActivePage] = useState('home'); // 'home' or 'classrooms'
 
   const handleSelectGoal = (classVal, goalVal) => {
     setPrefilledClass(classVal);
@@ -69,26 +71,40 @@ Email: info@manojprivatetutions.edu
     <div className="min-h-screen bg-brand-slate-50 antialiased selection:bg-brand-green-500 selection:text-white">
       {/* Navigation Header */}
       <Navbar 
+        activePage={activePage}
+        setActivePage={setActivePage}
         onOpenPortal={() => setIsPortalOpen(true)}
         onOpenDemoModal={handleOpenDemoModal}
       />
 
       {/* Main Sections */}
       <main>
-        <Hero 
-          onOpenDemoModal={handleOpenDemoModal}
-          onDownloadProspectus={handleDownloadProspectus}
-        />
-        
-        <ChooseGoal 
-          onSelectGoal={handleSelectGoal}
-        />
+        {activePage === 'home' ? (
+          <>
+            <Hero 
+              onOpenDemoModal={handleOpenDemoModal}
+              onDownloadProspectus={handleDownloadProspectus}
+            />
+            
+            <ChooseGoal 
+              onSelectGoal={handleSelectGoal}
+            />
 
-        <Founder />
+            <Founder />
 
-        <Faculty />
+            <Faculty />
 
-        <HallOfFame />
+            <HallOfFame />
+          </>
+        ) : (
+          <Classrooms 
+            onBackToHome={() => {
+              setActivePage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onOpenDemoModal={handleOpenDemoModal}
+          />
+        )}
 
         {/* Lead Capture form embedded directly as Footer banner section */}
         <LeadForm 
@@ -100,6 +116,7 @@ Email: info@manojprivatetutions.edu
 
       {/* Footer */}
       <Footer 
+        setActivePage={setActivePage}
         onOpenPortal={() => setIsPortalOpen(true)}
         onOpenDemoModal={handleOpenDemoModal}
       />

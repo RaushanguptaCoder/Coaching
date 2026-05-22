@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, GraduationCap, User, BookOpen, Award, FileText } from 'lucide-react';
+import { Menu, X, ChevronDown, GraduationCap, User, BookOpen, Award, FileText, School } from 'lucide-react';
 
-const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
+const Navbar = ({ activePage, setActivePage, onOpenPortal, onOpenDemoModal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +18,27 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLinkClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      if (targetId === 'classrooms') {
+        setActivePage('classrooms');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setActivePage('home');
+        // Let React re-render the home components first
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+      setIsOpen(false);
+    }
+  };
 
   const programs = {
     title: "Programs",
@@ -48,6 +69,7 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
 
   const navLinks = [
     { name: "About Us", href: "#about", icon: GraduationCap },
+    { name: "Classrooms", href: "#classrooms", icon: School },
     { name: "Results", href: "#results", icon: Award },
     { name: "Resources", href: "#resources", icon: FileText, subItems: ["Free Study Material", "Test Series", "Syllabus"] }
   ];
@@ -57,7 +79,13 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div 
+            className="flex-shrink-0 flex items-center gap-2 cursor-pointer" 
+            onClick={() => {
+              setActivePage('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <div className="p-2 rounded-xl bg-gradient-to-tr from-brand-blue-600 to-brand-green-500 text-white shadow-md">
               <GraduationCap className="h-6 w-6" />
             </div>
@@ -98,7 +126,10 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                         <a
                           key={i}
                           href={wing.href}
-                          onClick={() => setActiveDropdown(null)}
+                          onClick={(e) => {
+                            setActiveDropdown(null);
+                            handleLinkClick(e, wing.href);
+                          }}
                           className="flex items-start gap-3 p-3 rounded-xl hover:bg-brand-slate-800/60 transition-colors group"
                         >
                           <div className={`p-2 rounded-lg bg-gradient-to-br ${wing.color} text-white group-hover:scale-105 transition-transform`}>
@@ -125,7 +156,11 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                 onMouseEnter={() => link.subItems ? setActiveDropdown(link.name) : null}
                 onMouseLeave={() => link.subItems ? setActiveDropdown(null) : null}
               >
-                <a href={link.href} className="font-medium hover:text-brand-green-400 transition-colors text-sm flex items-center gap-1">
+                <a 
+                  href={link.href}
+                  onClick={(e) => !link.subItems && handleLinkClick(e, link.href)}
+                  className={`font-medium hover:text-brand-green-400 transition-colors text-sm flex items-center gap-1 ${activePage === 'classrooms' && link.name === 'Classrooms' ? 'text-brand-green-400' : ''}`}
+                >
                   {link.name} {link.subItems && <ChevronDown className="h-4 w-4" />}
                 </a>
 
@@ -141,7 +176,10 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                       <a
                         key={itemIdx}
                         href="#resources"
-                        onClick={() => setActiveDropdown(null)}
+                        onClick={(e) => {
+                          setActiveDropdown(null);
+                          handleLinkClick(e, '#resources');
+                        }}
                         className="block px-4 py-2 text-sm text-brand-slate-300 hover:text-brand-green-400 hover:bg-brand-slate-800 rounded-lg transition-colors"
                       >
                         {item}
@@ -211,7 +249,10 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                     <a
                       key={i}
                       href={wing.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => {
+                        setIsOpen(false);
+                        handleLinkClick(e, wing.href);
+                      }}
                       className="block px-3 py-2 rounded-lg text-brand-slate-300 hover:bg-brand-slate-800 hover:text-white transition-colors"
                     >
                       <span className="font-medium text-sm block">{wing.name}</span>
@@ -228,7 +269,10 @@ const Navbar = ({ onOpenPortal, onOpenDemoModal }) => {
                     <a
                       key={idx}
                       href={link.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => {
+                        setIsOpen(false);
+                        handleLinkClick(e, link.href);
+                      }}
                       className="block px-3 py-2 rounded-lg text-sm text-brand-slate-300 hover:bg-brand-slate-800 hover:text-white transition-colors"
                     >
                       {link.name}
