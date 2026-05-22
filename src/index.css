@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue-50: #f0f6ff;
+  --color-brand-blue-100: #e0edff;
+  --color-brand-blue-200: #bcd7ff;
+  --color-brand-blue-300: #84b5ff;
+  --color-brand-blue-400: #458bff;
+  --color-brand-blue-500: #1d5cff;
+  --color-brand-blue-600: #0936eb;
+  --color-brand-blue-700: #0424c7;
+  --color-brand-blue-800: #0a1d9f;
+  --color-brand-blue-900: #0f1c7e;
+  --color-brand-blue-950: #080d38;
+
+  --color-brand-green-50: #ecfdf5;
+  --color-brand-green-100: #d1fae5;
+  --color-brand-green-200: #a7f3d0;
+  --color-brand-green-300: #6ee7b7;
+  --color-brand-green-400: #34d399;
+  --color-brand-green-500: #10b981;
+  --color-brand-green-600: #059669;
+  --color-brand-green-700: #047857;
+  --color-brand-green-800: #065f46;
+  --color-brand-green-900: #064e3b;
+  --color-brand-green-950: #022c22;
+
+  --color-brand-slate-50: #f8fafc;
+  --color-brand-slate-100: #f1f5f9;
+  --color-brand-slate-200: #e2e8f0;
+  --color-brand-slate-300: #cbd5e1;
+  --color-brand-slate-400: #94a3b8;
+  --color-brand-slate-500: #64748b;
+  --color-brand-slate-600: #475569;
+  --color-brand-slate-700: #334155;
+  --color-brand-slate-800: #1e293b;
+  --color-brand-slate-900: #0f172a;
+  --color-brand-slate-950: #020617;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Custom premium styles */
+.gradient-text {
+  background: linear-gradient(135deg, #0f1c7e 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #080d38 0%, #0f1c7e 50%, #0a1d9f 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark-glass-card {
+  background: rgba(8, 13, 56, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
